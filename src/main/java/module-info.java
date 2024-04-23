@@ -6,6 +6,8 @@ module com.sample.engrisk {
     requires com.dlsc.formsfx;
     requires com.almasb.fxgl.all;
     requires java.desktop;
+    requires javafx.media;
+
 
     opens com.sample.engrisk to javafx.fxml;
     exports com.sample.engrisk;

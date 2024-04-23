@@ -10,18 +10,18 @@
 
 <!-- the fx:controller is really important, learned that the hard way -->
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sample.engrisk.HelloController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sample.engrisk.DictionaryController">
    <children>
-      <Button fx:id="crudButton" layoutX="300.0" layoutY="14.0" mnemonicParsing="false" text="add/delete word" />
+      <Button fx:id="crudButton" layoutX="300.0" layoutY="14.0" mnemonicParsing="false" onAction="#onBoleroButtonClick" text="add/delete word" />
       <Button fx:id="gameButton" layoutX="606.0" layoutY="14.0" mnemonicParsing="false" text="game - API?" />
       <TextField fx:id="searchBar" layoutX="14.0" layoutY="14.0" prefHeight="25.0" prefWidth="228.0" />
-      <ListView fx:id="resultsBar" layoutX="14.0" layoutY="55.0" prefHeight="531.0" prefWidth="213.0" />
+      <ListView fx:id="wordList" layoutX="14.0" layoutY="55.0" prefHeight="531.0" prefWidth="213.0" />
       <ScrollBar fx:id="scrollResultBar" layoutX="227.0" layoutY="55.0" orientation="VERTICAL" prefHeight="531.0" prefWidth="14.0" />
       <WebView fx:id="definitionView" layoutX="249.0" layoutY="88.0" prefHeight="498.0" prefWidth="539.0" />
       <Button fx:id="speakButton" layoutX="250.0" layoutY="55.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="52.0" text="speak" />
       <Button fx:id="findWordButton" layoutX="250.0" layoutY="14.0" mnemonicParsing="false" text="find" />
       <Button fx:id="translationButton" layoutX="493.0" layoutY="14.0" mnemonicParsing="false" text="translation - API?" />
-      <RadioButton fx:id="boleroButton" layoutX="699.0" layoutY="18.0" mnemonicParsing="false" text="nhac vang" />
+      <RadioButton fx:id="boleroButton" layoutX="699.0" layoutY="18.0" mnemonicParsing="false" onAction="#handleBoleroAction" text="nhac vang" />
       <Button fx:id="stfuButton" layoutX="324.0" layoutY="55.0" mnemonicParsing="false" text="shut up" />
       <Button fx:id="suicide" layoutX="537.0" layoutY="55.0" mnemonicParsing="false" text="intentionally crash this program" />
       <Button fx:id="settingsButton" layoutX="728.0" layoutY="55.0" mnemonicParsing="false" text="settings" />

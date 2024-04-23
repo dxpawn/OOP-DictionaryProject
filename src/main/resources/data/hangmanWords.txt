@@ -32,8 +32,6 @@ argument
 arm
 army
 art
-as
-at
 attack
 attempt
 attention
@@ -52,7 +50,6 @@ base
 basin
 basket
 bath
-be
 beautiful
 because
 bed
@@ -106,7 +103,6 @@ business
 but
 butter
 button
-by
 cake
 camera
 canvas
@@ -170,7 +166,6 @@ cruel
 crush
 cry
 cup
-cup
 current
 curtain
 curve
@@ -205,7 +200,6 @@ disgust
 distance
 distribution
 division
-do
 dog
 door
 doubt
@@ -300,7 +294,6 @@ girl
 give
 glass
 glove
-go
 goat
 gold
 good
@@ -326,7 +319,6 @@ harmony
 hat
 hate
 have
-he
 head
 healthy
 hear
@@ -347,14 +339,11 @@ hour
 house
 how
 humour
-I
 ice
 idea
-if
 ill
 important
 impulse
-in
 increase
 industry
 ink
@@ -472,7 +461,7 @@ net
 new
 news
 night
-no
+nigh
 noise
 normal
 north
@@ -483,19 +472,16 @@ now
 number
 nut
 observation
-of
 off
 offer
 office
 oil
 old
-on
 only
 open
 operation
 opinion
 opposite
-or
 orange
 order
 organization
@@ -656,7 +642,7 @@ simple
 sister
 size
 skin
-
+slut
 skirt
 sky
 sleep
@@ -672,14 +658,12 @@ smooth
 snake
 sneeze
 snow
-so
 soap
 society
 sock
 soft
 solid
 some
-
 son
 song
 sort
@@ -765,7 +749,6 @@ till
 time
 tin
 tired
-to
 toe
 together
 tomorrow
@@ -788,7 +771,6 @@ twist
 umbrella
 under
 unit
-up
 use
 value
 verse
@@ -822,8 +804,6 @@ while
 whip
 whistle
 white
-who
-why
 wide
 will
 wind
@@ -849,6 +829,3 @@ yes
 yesterday
 you
 young
-Bernhard
-Breytenbach
-Android

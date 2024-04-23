@@ -24,7 +24,7 @@
       <artifactId>javafx-fxml</artifactId>
       <version>22-ea+11</version>
     </dependency>
-<dependency>
+    <dependency>
       <groupId>org.openjfx</groupId>
       <artifactId>javafx-media</artifactId>
       <version>22-ea+11</version>
@@ -82,7 +82,7 @@
             <!-- Default configuration for running with: mvn clean javafx:run -->
             <id>default-cli</id>
             <configuration>
-              <mainClass>com.sample.engrisk/com.sample.engrisk.HelloApplication</mainClass>
+              <mainClass>com.sample.engrisk/com.sample.engrisk.DictionaryApplication</mainClass>
               <launcher>app</launcher>
               <jlinkZipName>app</jlinkZipName>
               <jlinkImageName>app</jlinkImageName>
