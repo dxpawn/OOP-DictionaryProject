@@ -23,7 +23,7 @@
       <Button fx:id="translationButton" layoutX="493.0" layoutY="14.0" mnemonicParsing="false" text="translation - API?" />
       <RadioButton fx:id="boleroButton" layoutX="699.0" layoutY="18.0" mnemonicParsing="false" onAction="#handleBoleroAction" text="nhac vang" />
       <Button fx:id="stfuButton" layoutX="324.0" layoutY="55.0" mnemonicParsing="false" text="shut up" />
-      <Button fx:id="suicide" layoutX="537.0" layoutY="55.0" mnemonicParsing="false" text="intentionally crash this program" />
+      <Button fx:id="switchToVE" layoutX="619.0" layoutY="55.0" mnemonicParsing="false" text="Switch to V -&gt; E" />
       <Button fx:id="settingsButton" layoutX="728.0" layoutY="55.0" mnemonicParsing="false" text="settings" />
    </children>
 </AnchorPane>

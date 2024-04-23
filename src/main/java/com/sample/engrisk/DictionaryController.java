@@ -17,7 +17,7 @@ public class DictionaryController {
     @FXML
     private TextField searchBar;
     @FXML
-    private ListView<String> resultsBar;
+    private ListView<String> wordList;
     @FXML
     private ScrollBar scrollResultBar;
     @FXML
@@ -33,7 +33,7 @@ public class DictionaryController {
     @FXML
     private Button crudButton;
     @FXML
-    private Button suicide;
+    private Button switchToVE;
     @FXML
     private Button settingsButton;
     @FXML

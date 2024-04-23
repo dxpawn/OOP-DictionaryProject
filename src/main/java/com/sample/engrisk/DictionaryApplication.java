@@ -1,7 +1,9 @@
 package com.sample.engrisk;
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
 import javafx.fxml.*;
+import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.web.WebView;
 import javafx.stage.*;
@@ -24,9 +26,15 @@ public class DictionaryApplication extends Application {
     private ListView<String> wordList;
     @FXML
     private WebView definitionView;
+    @FXML
+    private Button switchToVEButton;
 
     public static void main(String[] args) {
         launch();
+    }
+
+    public void switchToVE(ActionEvent event) {
+
     }
 
     @Override
