@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 import javafx.scene.web.WebView;
 import javafx.stage.*;
 import javafx.scene.Scene;
@@ -20,14 +21,12 @@ import java.util.*;
 
 public class DictionaryApplication extends Application {
     private static final String SPLITTING_CHARACTERS = "<html>";
-    private Map<String, Word> data = new TreeMap<>();
+    private Map<String, Word> data = new TreeMap<>(); // TreeMap sorts alphabetically
 
     @FXML
     private ListView<String> wordList;
     @FXML
     private WebView definitionView;
-    @FXML
-    private Button switchToVEButton;
 
     public static void main(String[] args) {
         launch();

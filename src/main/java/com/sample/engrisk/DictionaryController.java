@@ -1,70 +1,79 @@
 package com.sample.engrisk;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 import javafx.scene.web.WebView;
-import javafx.stage.Stage;
+import java.util.Map;
+import java.util.TreeMap;
+import java.util.stream.Collectors;
 
+import java.util.Objects;
 
-public class DictionaryController {
+public class DictionaryController extends GeneralController {
+    private Map<String, Word> data = new TreeMap<>();
+
     @FXML
-    private Button gameButton;
+    private RadioButton boleroButton;
     @FXML
-    private TextField searchBar;
+    private MediaPlayer mediaPlayer;
     @FXML
     private ListView<String> wordList;
     @FXML
-    private ScrollBar scrollResultBar;
+    private TextField searchField;
     @FXML
     private WebView definitionView;
-    @FXML
-    private Button translationButton;
-    @FXML
-    private Button speakButton;
-    @FXML
-    private Button findWordButton;
-    @FXML
-    private Button stfuButton;
-    @FXML
-    private Button crudButton;
-    @FXML
-    private Button switchToVE;
-    @FXML
-    private Button settingsButton;
-    @FXML
-    private Label welcomeText;
-    @FXML
-    private TextField inputField;
+
+    private DictionaryService dictionaryService = new DictionaryService();
 
     @FXML
-    protected void onBoleroButtonClick() {
-        welcomeText.setText("Nhung ngay chua nhap ngu anh hay dat em ve...");
-    }
-
-    @FXML
-    protected void onSuicideButtonClick() {
-        welcomeText.setText("Duong thuong dau day ai nhan gian...");
-    }
-
-    // nhac vang remix
-    @FXML
-    private RadioButton boleroButton;
-    private MediaPlayer mediaPlayer;
-
     public void initialize() {
         try {
-            Media media = new Media(getClass().getResource("/data/VoNguaTrenDoiCoNon.mp3").toExternalForm());
+            Media media = new Media(Objects.requireNonNull(getClass().getResource("/data/VoNguaTrenDoiCoNon.mp3")).toExternalForm());
             mediaPlayer = new MediaPlayer(media);
         } catch (Exception e) {
             System.out.println("Error loading media: " + e.getMessage());
         }
+        try {
+            dictionaryService.loadData(); // Load data
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        loadWordList();
+        setupSearchField();
+    }
+    private void setupSearchField() {
+        searchField.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue != null) { // without this check, it will throw a null pointer exception
+                String trimmedValue = newValue.trim();
+                filterWordList(trimmedValue);
+            } else {
+                filterWordList(""); // no more null pointer exception after clearing search field hahahahahah
+            }
+        });
+
     }
 
+    private void filterWordList(String query) { // Start of word match, not exact/whole/substring match
+        if (query == null || query.isEmpty()) {
+            wordList.getItems().clear();
+            wordList.getItems().addAll(dictionaryService.getData().keySet());
+        } else {
+            String lowerCaseQuery = query.toLowerCase(); // Convert query to lower case once
+            var filtered = dictionaryService.getData().keySet().stream()
+                    .filter(word -> word.toLowerCase().startsWith(lowerCaseQuery))
+                    .collect(Collectors.toList());
+            wordList.getItems().setAll(filtered);
+        }
+    }
+
+    private void loadWordList() {
+        wordList.getItems().addAll(dictionaryService.getData().keySet());
+    }
+    // nhac vang
     @FXML
     private void handleBoleroAction() {
         if (boleroButton.isSelected()) {
