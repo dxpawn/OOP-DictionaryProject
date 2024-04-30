@@ -6,6 +6,7 @@ import javafx.fxml.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
 import javafx.scene.web.WebView;
 import javafx.stage.*;
 import javafx.scene.Scene;
@@ -14,6 +15,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import com.sample.engrisk.GameController; // import GameController class from the same package
 
 import java.io.*;
 import java.util.*;
@@ -65,11 +67,21 @@ public class DictionaryApplication extends Application {
         this.definitionView = (WebView) scene.lookup("#definitionView");
         this.wordList = (ListView<String>) scene.lookup("#wordList");
         DictionaryApplication context = this;
+
         this.wordList.getSelectionModel().selectedItemProperty().addListener(
-                (observableValue, oldValue, newValue) -> {
-                    Word selectedWord = data.get(newValue.trim());
-                    String definition = selectedWord.getDef();
-                    context.definitionView.getEngine().loadContent(definition, "text/html");
+                (observableValue, oldValue, newValue) -> { // hopefully no more null pointer exception
+                    if (newValue != null) {
+                        Word selectedWord = data.get(newValue.trim());
+                        if (selectedWord != null) { // if the selectedWord is not null
+                            String definition = selectedWord.getDef();
+                            // load the definition into WebView
+                            context.definitionView.getEngine().loadContent(definition, "text/html");
+                        } else { // handle cases where the word is not found in the dictionary
+                            context.definitionView.getEngine().loadContent("Definition not found.", "text/html");
+                        }
+                    } else { // display a default message when no word is selected
+                        context.definitionView.getEngine().loadContent("<p>No word is selected.</p>", "text/html");
+                    }
                 }
         );
     }
@@ -116,4 +128,5 @@ class Word {
     public void setDef(String def) {
         this.def = def;
     }
+
 }

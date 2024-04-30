@@ -1,12 +1,20 @@
 package com.sample.engrisk;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.web.WebView;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 import java.util.Map;
 import java.util.TreeMap;
 import java.util.stream.Collectors;
@@ -82,5 +90,19 @@ public class DictionaryController extends GeneralController {
             mediaPlayer.pause();
         }
     }
+    @FXML // Hangman game
+    private void launchHangmanGame() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("game_view.fxml"));
+        VBox gameRoot = loader.load();
+        GameController gameController = loader.getController();
 
+        Stage gameStage = new Stage();
+        gameStage.setScene(new Scene(gameRoot));
+        gameStage.setTitle("hangman! - up to 15 letters long");
+        gameStage.setResizable(false);
+        gameStage.initModality(Modality.APPLICATION_MODAL); // lock main window
+        gameStage.show();
+
+        gameController.initializeGame();
+    }
 }
