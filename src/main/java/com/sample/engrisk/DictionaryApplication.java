@@ -44,7 +44,7 @@ public class DictionaryApplication extends Application {
         AnchorPane root = fxmlLoader.load(); // Load once
 
         // text to the root
-        Text text = new Text(20, 50, "Em dau yeu oi, anh dang quay ve 10 nam xa vang...");
+        Text text = new Text(20, 50, "Thanh pho nao vua di da moi?");
         root.getChildren().add(text);
 
         Scene scene = new Scene(root, 800, 600); // reuse root
