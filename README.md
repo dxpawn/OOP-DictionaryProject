@@ -1,4 +1,4 @@
-# **Thư Gửi Những Người Anh Em Trong Nhóm OOP - Khẩn Cấp**
+# **Gửi Những Người Anh Em Trong Nhóm OOP - Khẩn Cấp**
 
 ## **Các đồng chí!**
 
