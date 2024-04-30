@@ -6,6 +6,7 @@ import javafx.fxml.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
 import javafx.scene.web.WebView;
 import javafx.stage.*;
 import javafx.scene.Scene;
@@ -14,6 +15,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import com.sample.engrisk.GameController; // import GameController class from the same package
 
 import java.io.*;
 import java.util.*;
@@ -126,4 +128,5 @@ class Word {
     public void setDef(String def) {
         this.def = def;
     }
+
 }
