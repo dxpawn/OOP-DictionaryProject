@@ -98,9 +98,9 @@ public class DictionaryController extends GeneralController {
 
         Stage gameStage = new Stage();
         gameStage.setScene(new Scene(gameRoot));
-        gameStage.setTitle("execution");
+        gameStage.setTitle("hangman! - up to 15 letters long");
         gameStage.setResizable(false);
-        gameStage.initModality(Modality.APPLICATION_MODAL); // Prevent interaction with main window
+        gameStage.initModality(Modality.APPLICATION_MODAL); // lock main window
         gameStage.show();
 
         gameController.initializeGame();
