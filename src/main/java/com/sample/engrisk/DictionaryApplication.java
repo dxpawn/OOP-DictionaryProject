@@ -1,5 +1,6 @@
 package com.sample.engrisk;
 
+import com.almasb.fxgl.audio.Sound;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.*;
