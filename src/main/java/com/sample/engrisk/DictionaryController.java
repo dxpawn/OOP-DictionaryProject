@@ -40,7 +40,7 @@ public class DictionaryController extends GeneralController {
     @FXML
     public void initialize() {
         try {
-            Media media = new Media(Objects.requireNonNull(getClass().getResource("/data/ThanhPhoBuon.mp3")).toExternalForm());
+            Media media = new Media(Objects.requireNonNull(getClass().getResource("/sounds/ThanhPhoBuon.mp3")).toExternalForm());
             mediaPlayer = new MediaPlayer(media);
         } catch (Exception e) {
             System.out.println("Error loading media: " + e.getMessage());

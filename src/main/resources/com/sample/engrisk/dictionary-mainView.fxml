@@ -11,17 +11,18 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sample.engrisk.DictionaryController">
    <children>
-      <Button fx:id="crudButton" layoutX="300.0" layoutY="14.0" mnemonicParsing="false" text="add/delete word" />
+
+      <Button fx:id="crudButton" layoutX="250.0" layoutY="14.0" mnemonicParsing="false" text="CRUD operations" />
       <Button fx:id="gameButton" layoutX="611.0" layoutY="14.0" mnemonicParsing="false" onAction="#launchHangmanGame" text="die by a rope" />
       <TextField fx:id="searchField" layoutX="14.0" layoutY="14.0" prefHeight="25.0" prefWidth="228.0" />
       <ListView fx:id="wordList" layoutX="14.0" layoutY="55.0" prefHeight="531.0" prefWidth="228.0" />
       <WebView fx:id="definitionView" layoutX="249.0" layoutY="88.0" prefHeight="498.0" prefWidth="539.0" />
-      <Button fx:id="speakButton" layoutX="250.0" layoutY="55.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="52.0" text="speak" />
-      <Button fx:id="findWordButton" layoutX="250.0" layoutY="14.0" mnemonicParsing="false" text="find" />
-      <Button fx:id="translationButton" layoutX="496.0" layoutY="14.0" mnemonicParsing="false" text="translation - API?" />
+      <Button fx:id="speakUSButton" layoutX="250.0" layoutY="55.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="52.0" text="speak" />
+      <Button fx:id="translationButton" layoutX="477.0" layoutY="14.0" mnemonicParsing="false" text="translate something" />
       <RadioButton fx:id="boleroButton" layoutX="710.0" layoutY="18.0" mnemonicParsing="false" onAction="#handleBoleroAction" text="nhac vang" />
-      <Button fx:id="stfuButton" layoutX="324.0" layoutY="55.0" mnemonicParsing="false" text="shut up" />
+      <Button fx:id="stfuButton" layoutX="421.0" layoutY="55.0" mnemonicParsing="false" text="shut up" />
       <Button fx:id="switchToVE" layoutX="619.0" layoutY="55.0" mnemonicParsing="false" text="Switch to V -&gt; E" />
       <Button fx:id="settingsButton" layoutX="728.0" layoutY="55.0" mnemonicParsing="false" text="settings" />
+      <Button fx:id="speakUKButton" layoutX="316.0" layoutY="55.0" mnemonicParsing="false" text="speak with tea" />
    </children>
 </AnchorPane>

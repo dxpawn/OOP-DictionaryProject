@@ -5,6 +5,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import java.net.URL;
 
 import java.util.*;
 
@@ -27,6 +30,7 @@ public class GameController extends GeneralController {
     private List<Character> guessedLetters;
     private int remainingGuesses;
     private int stage;
+    private SoundPlayer soundPlayer = new SoundPlayer();
 
     public void initializeGame() {
         DictionaryService dictionaryService = new DictionaryService();
@@ -73,6 +77,7 @@ public class GameController extends GeneralController {
                     updateWordDisplay();
                     if (isWordGuessed()) {
                         messageLabel.setText("You have won, for now...");
+                        soundPlayer.playSound("Victory.mp3");
                     }
                 } else {
                     remainingGuesses--;
@@ -80,6 +85,7 @@ public class GameController extends GeneralController {
                     updateHangmanImage();
                     if (remainingGuesses == 0) {
                         messageLabel.setText("You so stupid! The word was: " + wordToGuess);
+                        soundPlayer.playSound("Defeat.mp3");
                         // note: this won't stop you from keep playing after you lost
                     }
                 }
