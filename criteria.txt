@@ -10,6 +10,6 @@ GUI: 1,5 : Yes
 Good UI/UX: 0,5 : No
 Optimize Search: 1 : No 
 API: 0,5 : No, soon
-Game: 0,5 : No, soon
+Game: 0,5 : Yes
 
 
