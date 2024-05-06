@@ -1,5 +1,5 @@
 package com.sample.engrisk;
-
+// Note: Currently unused
 /*
  * Simple version of HashMap, using always String as key, int as value.
  * @author Rael G.C. (rael.gc@gmail.com)

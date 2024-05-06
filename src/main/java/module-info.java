@@ -1,7 +1,8 @@
 module com.sample.engrisk {
     requires javafx.controls;
     requires javafx.fxml;
-    requires javafx.web; // for WebView
+    requires javafx.web; // webview
+    requires javafx.graphics; // icon
 
     requires com.dlsc.formsfx;
     requires com.almasb.fxgl.all;
@@ -9,6 +10,6 @@ module com.sample.engrisk {
     requires javafx.media;
 
 
-    opens com.sample.engrisk to javafx.fxml;
+    opens com.sample.engrisk to javafx.graphics, javafx.fxml;
     exports com.sample.engrisk;
 }
