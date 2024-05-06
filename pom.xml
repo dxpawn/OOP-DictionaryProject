@@ -13,7 +13,11 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 <junit.version>5.10.0</junit.version>  </properties>
 
-  <dependencies>
+  <dependencies><dependency>
+    <groupId>com.google.cloud</groupId>
+    <artifactId>google-cloud-translate</artifactId>
+    <version>1.124.0</version>
+</dependency>
     <dependency>
       <groupId>org.openjfx</groupId>
       <artifactId>javafx-controls</artifactId>
