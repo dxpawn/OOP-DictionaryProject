@@ -19,6 +19,7 @@ import javafx.beans.value.ObservableValue;
 import com.sample.engrisk.GameController; // import GameController class from the same package
 
 import java.io.*;
+import java.net.URL;
 import java.util.*;
 
 
@@ -50,8 +51,15 @@ public class DictionaryApplication extends Application {
 
         Scene scene = new Scene(root, 800, 600); // reuse root
         primaryStage.setResizable(false); // cuz AnchorPane
-        Image icon = new Image("icon.png"); // if this doesnt work, rebuild project and invalidate caches
-        primaryStage.getIcons().add(icon);
+        // WARNING: DO NOT MODIFY THIS IMAGE PATH - THIS HAS CAUSED A LOT OF TROUBLE, i.e. InvocationTargetException
+        URL imageUrl = getClass().getResource("/images/icon.jpg");
+        if (imageUrl == null) {
+            System.out.println("Resource not found");
+        } else {
+            Image icon = new Image(imageUrl.toString());
+            primaryStage.getIcons().add(icon);
+        }
+        //
         primaryStage.setTitle("Dictionary! A poorly made contraption, born from the unpreparedness of 2 idiots.");
         primaryStage.setScene(scene);
         primaryStage.show();
@@ -81,7 +89,7 @@ public class DictionaryApplication extends Application {
                             context.definitionView.getEngine().loadContent("Definition not found.", "text/html");
                         }
                     } else { // display a default message when no word is selected
-                        context.definitionView.getEngine().loadContent("<p>No word is selected.</p>", "text/html");
+                        context.definitionView.getEngine().loadContent("<p>No word is currently selected.</p>", "text/html");
                     }
                 }
         );

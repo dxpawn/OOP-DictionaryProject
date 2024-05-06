@@ -42,7 +42,8 @@ public class GameController extends GeneralController {
         }
         Map<String, Word> data = dictionaryService.getData();
         List<String> words = new ArrayList<>(data.keySet());
-        words.removeIf(word -> word.length() < 5 || word.length() > 15 || word.contains("-")); // remove words that has hyphens, are too short or too long
+        words.removeIf(word -> word.length() < 5 || word.length() > 15 || word.contains("-") || word.contains(" "));
+        // remove words that has hyphens or spaces, are too short or too long
         Random random = new Random();
         wordToGuess = words.get(random.nextInt(words.size()));
 
