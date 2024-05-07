@@ -105,6 +105,7 @@ public class DictionaryController extends GeneralController {
 
         gameController.initializeGame();
     }
+
     @FXML
     protected void handleTranslateButtonAction(ActionEvent event) {
     String inputText = inputField.getText();
@@ -120,5 +121,9 @@ public class DictionaryController extends GeneralController {
         e.printStackTrace();
     
     }
+  }
+  
+  private void changeLanguage() {
+    }
 }
-}
+

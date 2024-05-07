@@ -6,11 +6,14 @@ import java.io.InputStreamReader;
 import java.util.Map;
 import java.util.TreeMap;
 
-public class DictionaryService {
+public class DictionaryService extends GeneralController {
     private Map<String, Word> data = new TreeMap<>();
+    public static final String EV_PATH = "/data/E_V.txt";
+    public static final String VE_PATH = "/data/V_E.txt";
 
     public void loadData() throws Exception {
-        InputStream inputStream = getClass().getResourceAsStream("/data/E_V.txt");
+        String path = ifVietnamese ? VE_PATH : EV_PATH;
+        InputStream inputStream = getClass().getResourceAsStream("/data/V_E.txt");
         BufferedReader br = new BufferedReader(new InputStreamReader(inputStream));
         String line;
         while ((line = br.readLine()) != null) {
