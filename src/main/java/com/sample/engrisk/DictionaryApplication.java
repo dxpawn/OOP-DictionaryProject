@@ -25,7 +25,6 @@ import java.util.*;
 
 public class DictionaryApplication extends Application {
     private static final String SPLITTING_CHARACTERS = "<html>";
-    private Map<String, Word> data = new TreeMap<>(); // TreeMap sorts alphabetically
     DictionaryService dictionaryService = new DictionaryService();
 
     @FXML
@@ -35,10 +34,6 @@ public class DictionaryApplication extends Application {
 
     public static void main(String[] args) {
         launch();
-    }
-
-    public void switchToVE(ActionEvent event) {
-
     }
 
     @Override
@@ -67,21 +62,35 @@ public class DictionaryApplication extends Application {
         // init components
         initComponents(scene);
 
-        // read word list from E_V.txt
+        // read word list from txt file
         readData();
 
         // load word list to the wordList
         loadWordList();
     }
+
+    public void loadWordList() {
+        wordList.getItems().clear();
+        this.wordList.getItems().addAll(dictionaryService.getData().keySet());
+    }
+
+    public void readData() {
+        try {
+            dictionaryService.loadData();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public void initComponents(Scene scene) {
         this.definitionView = (WebView) scene.lookup("#definitionView");
         this.wordList = (ListView<String>) scene.lookup("#wordList");
         DictionaryApplication context = this;
 
         this.wordList.getSelectionModel().selectedItemProperty().addListener(
-                (observableValue, oldValue, newValue) -> { // hopefully no more null pointer exception
+                (observableValue, oldValue, newValue) -> {
                     if (newValue != null) {
-                        Word selectedWord = data.get(newValue.trim());
+                        Word selectedWord = dictionaryService.getData().get(newValue.trim()); // access data via dictionaryService
                         if (selectedWord != null) { // if the selectedWord is not null
                             String definition = selectedWord.getDef();
                             // load the definition into WebView
@@ -96,18 +105,7 @@ public class DictionaryApplication extends Application {
         );
     }
 
-    public void loadWordList() {
-        this.wordList.getItems().addAll(data.keySet());
-    }
 
-    public void readData() {
-        try {
-            dictionaryService.loadData();
-            data = dictionaryService.getData();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 }
 
 class Word {

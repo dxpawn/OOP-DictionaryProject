@@ -6,6 +6,7 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
+// Yes, a HashMap to avoid reloading the same sound file
 public class SoundPlayer {
     private Map<String, MediaPlayer> mediaPlayers = new HashMap<>();
 

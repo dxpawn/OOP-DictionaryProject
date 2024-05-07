@@ -14,11 +14,11 @@
 <junit.version>5.10.0</junit.version>  </properties>
 
   <dependencies>
-           <dependency>
+    <dependency>
     <groupId>com.google.cloud</groupId>
     <artifactId>google-cloud-translate</artifactId>
-    <version>1.124.0</version>
-</dependency>
+    <version>2.42.0</version>
+    </dependency>
     <dependency>
       <groupId>org.openjfx</groupId>
       <artifactId>javafx-controls</artifactId>
@@ -28,6 +28,16 @@
       <groupId>org.openjfx</groupId>
       <artifactId>javafx-fxml</artifactId>
       <version>22-ea+11</version>
+    </dependency>
+    <dependency>
+      <groupId>com.googlecode.json-simple</groupId>
+      <artifactId>json-simple</artifactId>
+      <version>1.1.1</version>
+    </dependency>
+    <dependency>
+      <groupId>javazoom</groupId>
+      <artifactId>jlayer</artifactId>
+      <version>1.0.1</version>
     </dependency>
     <dependency>
       <groupId>org.openjfx</groupId>

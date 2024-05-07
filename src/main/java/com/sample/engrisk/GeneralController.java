@@ -9,7 +9,7 @@ import javafx.scene.control.Button;
 public class GeneralController {
     public static final String EV_PATH = "/data/E_V.txt";
     public static final String VE_PATH = "/data/V_E.txt";
-
+    protected static boolean isVietnamese = false;
 
     @FXML
     protected Button crudButton;

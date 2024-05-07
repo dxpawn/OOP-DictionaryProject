@@ -1,5 +1,6 @@
 package com.sample.engrisk;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -39,7 +40,7 @@ public class DictionaryController extends GeneralController {
 
     @FXML
     public void initialize() {
-        try {
+        try { // yes i know loading this media file before the words is just stupid but idc
             Media media = new Media(Objects.requireNonNull(getClass().getResource("/sounds/ThanhPhoBuon.mp3")).toExternalForm());
             mediaPlayer = new MediaPlayer(media);
         } catch (Exception e) {
@@ -70,7 +71,7 @@ public class DictionaryController extends GeneralController {
             wordList.getItems().clear();
             wordList.getItems().addAll(dictionaryService.getData().keySet());
         } else {
-            String lowerCaseQuery = query.toLowerCase(); // Convert query to lower case once
+            String lowerCaseQuery = query.toLowerCase(); // convert query to lower case once
             var filtered = dictionaryService.getData().keySet().stream()
                     .filter(word -> word.toLowerCase().startsWith(lowerCaseQuery))
                     .collect(Collectors.toList());
@@ -79,9 +80,11 @@ public class DictionaryController extends GeneralController {
     }
 
     private void loadWordList() {
+        wordList.getItems().clear(); // just to make sure
         wordList.getItems().addAll(dictionaryService.getData().keySet());
     }
-    // nhac vang
+
+    // nhac vang tram cam huhu
     @FXML
     private void handleBoleroAction() {
         if (boleroButton.isSelected()) {
@@ -105,13 +108,26 @@ public class DictionaryController extends GeneralController {
 
         gameController.initializeGame();
     }
+    @FXML
+    private void changeLanguage() {
+        isVietnamese = !isVietnamese; // toggle language
+        String translateText = isVietnamese ? "Dịch văn bản" : "Translate something";
+        translationButton.setText(translateText);
+        // text for other buttons similarly, i do this tomorrow
+        try {
+            dictionaryService.loadData(); // reload data with the new language
+            loadWordList(); // refresh word list
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
+    /* ON HOLD -
     @FXML
     protected void handleTranslateButtonAction(ActionEvent event) {
     String inputText = inputField.getText();
     try {
         String translatedText = translateAPI.translate(inputText);
-    
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Translation Result");
         alert.setHeaderText(null);
@@ -119,11 +135,10 @@ public class DictionaryController extends GeneralController {
         alert.showAndWait();
     } catch (IOException e) {
         e.printStackTrace();
-    
     }
-  }
-  
-  private void changeLanguage() {
-    }
+    */
+
 }
+
+
 

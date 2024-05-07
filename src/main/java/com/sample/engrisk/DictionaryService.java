@@ -12,8 +12,9 @@ public class DictionaryService extends GeneralController {
     public static final String VE_PATH = "/data/V_E.txt";
 
     public void loadData() throws Exception {
-        String path = ifVietnamese ? VE_PATH : EV_PATH;
-        InputStream inputStream = getClass().getResourceAsStream("/data/V_E.txt");
+        data = new TreeMap<>(); // new treeMap everytime this shit is called
+        String path = isVietnamese ? VE_PATH : EV_PATH; // change path based on language chosen
+        InputStream inputStream = getClass().getResourceAsStream(path);
         BufferedReader br = new BufferedReader(new InputStreamReader(inputStream));
         String line;
         while ((line = br.readLine()) != null) {
