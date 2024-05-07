@@ -105,4 +105,7 @@ public class DictionaryController extends GeneralController {
 
         gameController.initializeGame();
     }
+    private void changeLanguage() {
+
+    }
 }

@@ -26,6 +26,7 @@ import java.util.*;
 public class DictionaryApplication extends Application {
     private static final String SPLITTING_CHARACTERS = "<html>";
     private Map<String, Word> data = new TreeMap<>(); // TreeMap sorts alphabetically
+    DictionaryService dictionaryService = new DictionaryService();
 
     @FXML
     private ListView<String> wordList;
@@ -99,16 +100,12 @@ public class DictionaryApplication extends Application {
         this.wordList.getItems().addAll(data.keySet());
     }
 
-    public void readData() throws IOException {
-        InputStream inputStream = getClass().getResourceAsStream("/data/E_V.txt");
-        BufferedReader br = new BufferedReader(new InputStreamReader(inputStream));
-        String line;
-        while ((line = br.readLine()) != null) {
-            String[] parts = line.split(SPLITTING_CHARACTERS);
-            String word = parts[0];
-            String definition = SPLITTING_CHARACTERS + parts[1];
-            Word wordObj = new Word(word, definition);
-            data.put(word, wordObj);
+    public void readData() {
+        try {
+            dictionaryService.loadData();
+            data = dictionaryService.getData();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }
