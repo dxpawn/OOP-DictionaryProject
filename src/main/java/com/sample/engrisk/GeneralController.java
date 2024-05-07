@@ -63,22 +63,7 @@ public class GeneralController {
     @FXML
     protected TextField inputField;
   
-@FXML
-protected void handleTranslateButtonAction(ActionEvent event) {
-    String inputText = inputField.getText();
-    try {
-        String translatedText = translateAPI.translate(inputText);
-    
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Translation Result");
-        alert.setHeaderText(null);
-        alert.setContentText("Translated text: " + translatedText);
-        alert.showAndWait();
-    } catch (IOException e) {
-        e.printStackTrace();
-    
-    }
-}
+
 
 
 
