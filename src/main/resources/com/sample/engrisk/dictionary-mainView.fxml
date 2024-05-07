@@ -24,5 +24,6 @@
       <Button fx:id="switchToVE" layoutX="619.0" layoutY="55.0" mnemonicParsing="false" text="Switch to V -&gt; E" />
       <Button fx:id="settingsButton" layoutX="728.0" layoutY="55.0" mnemonicParsing="false" text="settings" />
       <Button fx:id="speakUKButton" layoutX="304.0" layoutY="55.0" mnemonicParsing="false" text="speak with tea" />
+      <Button fx:id="translationButton" text="Translate" onAction="#handleTranslateButtonAction" />
    </children>
 </AnchorPane>
