@@ -27,7 +27,4 @@ public class GeneralController {
     protected Button switchLanguageButton;
     @FXML
     protected Button settingsButton;
-
-
-
 }
