@@ -22,90 +22,45 @@ import java.io.*;
 import java.net.URL;
 import java.util.*;
 
+// NOTE: ALL DATA LOADING AND HANDLING HAS BEEN DELEGATED TO DictionaryService AND DictionaryController
 
 public class DictionaryApplication extends Application {
-    private static final String SPLITTING_CHARACTERS = "<html>";
-    DictionaryService dictionaryService = new DictionaryService();
-
-    @FXML
-    private ListView<String> wordList;
-    @FXML
-    private WebView definitionView;
 
     public static void main(String[] args) {
         launch();
     }
 
     @Override
-    public void start(Stage primaryStage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(DictionaryApplication.class.getResource("dictionary-mainView.fxml"));
-        AnchorPane root = fxmlLoader.load(); // Load once
-
-        // text to the root
-        Text text = new Text(20, 50, "Thanh pho nao vua di da moi?");
-        root.getChildren().add(text);
-
-        Scene scene = new Scene(root, 800, 600); // reuse root
-        primaryStage.setResizable(false); // cuz AnchorPane
-        // WARNING: DO NOT MODIFY THIS IMAGE PATH - THIS HAS CAUSED A LOT OF TROUBLE, i.e. InvocationTargetException
-        URL imageUrl = getClass().getResource("/images/icon.jpg");
-        if (imageUrl == null) {
-            System.out.println("Resource not found");
-        } else {
-            Image icon = new Image(imageUrl.toString());
-            primaryStage.getIcons().add(icon);
-        }
-        //
-        primaryStage.setTitle("Dictionary! A poorly made contraption, born from the unpreparedness of 2 idiots.");
-        primaryStage.setScene(scene);
-        primaryStage.show();
-        // init components
-        initComponents(scene);
-
-        // read word list from txt file
-        readData();
-
-        // load word list to the wordList
-        loadWordList();
-    }
-
-    public void loadWordList() {
-        wordList.getItems().clear();
-        wordList.getItems().addAll(dictionaryService.getData().keySet());
-    }
-
-    public void readData() {
+    public void start(Stage primaryStage) {
         try {
-            dictionaryService.loadData();
+            URL url = DictionaryApplication.class.getResource("/com/sample/engrisk/dictionary-mainView.fxml");
+            if (url == null) {
+                throw new FileNotFoundException("FXML file not found");
+            }
+            FXMLLoader fxmlLoader = new FXMLLoader(url);
+            AnchorPane root = fxmlLoader.load();
+            Scene scene = new Scene(root, 800, 600);
+            primaryStage.setTitle("Dictionary! A poorly made contraption, born from the unpreparedness of 2 idiots.");
+            primaryStage.setScene(scene);
+            primaryStage.setResizable(false);
+            primaryStage.show();
+
+            // WARNING: DO NOT MODIFY THIS IMAGE PATH - THIS HAS CAUSED A LOT OF TROUBLE, i.e. InvocationTargetException
+            URL imageUrl = getClass().getResource("/images/icon.jpg");
+            if (imageUrl == null) {
+                System.out.println("Resource not found");
+            } else {
+                Image icon = new Image(imageUrl.toString());
+                primaryStage.getIcons().add(icon);
+            }
+
         } catch (Exception e) {
             e.printStackTrace();
+            System.out.println("Failed to initialize application: " + e.getMessage());
         }
     }
-
-    public void initComponents(Scene scene) {
-        this.definitionView = (WebView) scene.lookup("#definitionView");
-        this.wordList = (ListView<String>) scene.lookup("#wordList");
-        DictionaryApplication context = this;
-
-        this.wordList.getSelectionModel().selectedItemProperty().addListener(
-                (observableValue, oldValue, newValue) -> {
-                    if (newValue != null) {
-                        Word selectedWord = dictionaryService.getData().get(newValue.trim()); // access data via dictionaryService
-                        if (selectedWord != null) { // if the selectedWord is not null
-                            String definition = selectedWord.getDef();
-                            context.definitionView.getEngine().loadContent(definition, "text/html");
-                        } else { // handle cases where the word is not found in the dictionary
-                            context.definitionView.getEngine().loadContent("Definition not found.", "text/html");
-                        }
-                    } else { // display a default message when no word is selected
-                        context.definitionView.getEngine().loadContent("<p>No word is currently selected.</p>", "text/html");
-                    }
-                }
-        );
-    }
-
-
 }
+
 
 class Word {
     private String word;

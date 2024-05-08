@@ -53,7 +53,9 @@ public class DictionaryController extends GeneralController {
         }
         loadWordList();
         setupSearchField();
+        setupSelectionListener(); // setup listener for word selection
     }
+
     private void setupSearchField() {
         searchField.textProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null) { // without this check, it will throw a null pointer exception
@@ -122,6 +124,7 @@ public class DictionaryController extends GeneralController {
         }
     }
 
+
     private void refreshWebView() {
         String selectedWordKey = wordList.getSelectionModel().getSelectedItem();
         if (selectedWordKey != null) {
@@ -134,6 +137,26 @@ public class DictionaryController extends GeneralController {
         } else {
             definitionView.getEngine().loadContent("<p>No word is currently selected.</p>", "text/html");
         }
+    }
+
+    private void setupSelectionListener() {
+        wordList.getSelectionModel().selectedItemProperty().addListener(
+                (observable, oldValue, newValue) -> {
+                    if (newValue != null) {
+                        String selectedWordKey = newValue.trim().toLowerCase(); // normalize the key
+                        System.out.println("Attempting to access word: " + selectedWordKey); // DEBUG OUTPUT
+                        Word selectedWord = dictionaryService.getData().get(selectedWordKey);
+                        if (selectedWord != null) {
+                            String definition = selectedWord.getDef();
+                            definitionView.getEngine().loadContent(definition, "text/html");
+                        } else {
+                            definitionView.getEngine().loadContent("Definition not found.", "text/html");
+                        }
+                    } else {
+                        definitionView.getEngine().loadContent("<p>No word is currently selected.</p>", "text/html");
+                    }
+                }
+        );
     }
 
     /* ON HOLD -

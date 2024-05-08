@@ -24,7 +24,7 @@ public class DictionaryService extends GeneralController {
         String line;
         while ((line = br.readLine()) != null) {
             String[] parts = line.split("<html>");
-            String word = parts[0].trim();
+            String word = parts[0].trim().toLowerCase(); // normalize the words
             System.out.println("Loading word: " + word); // DEBUG OUTPUT
             String definition = "<html>" + parts[1].trim();
             Word wordObj = new Word(word, definition);
