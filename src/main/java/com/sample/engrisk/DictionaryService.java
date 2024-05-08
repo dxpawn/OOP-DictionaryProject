@@ -35,4 +35,31 @@ public class DictionaryService extends GeneralController {
     public Map<String, Word> getData() {
         return data;
     }
+
+    // CRUD Operations - refer to CRUDController
+
+    private Map<String, Word> words = new TreeMap<>();
+
+    public void addWord(String word, String definition) {
+        words.put(word, new Word(word, definition));
+    }
+
+    public Word getWord(String word) {
+        return words.get(word);
+    }
+
+    public void updateWord(String word, String newDefinition) {
+        if (words.containsKey(word)) {
+            words.get(word).setDef(newDefinition);
+        }
+    }
+
+    public void deleteWord(String word) {
+        words.remove(word);
+    }
+
+    public Map<String, Word> getAllWords() {
+        return words;
+    }
+    // end
 }

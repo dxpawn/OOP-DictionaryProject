@@ -22,6 +22,8 @@ import java.util.stream.Collectors;
 
 import java.util.Objects;
 
+// It's a shame I didn't have time to learn CSS...
+
 public class DictionaryController extends GeneralController {
     private Map<String, Word> data = new TreeMap<>();
 
@@ -113,8 +115,23 @@ public class DictionaryController extends GeneralController {
     @FXML
     private void changeLanguage() {
         isVietnamese = !isVietnamese; // toggle language
-        String translateText = isVietnamese ? "Dịch văn bản" : "Translate something";
-        translationButton.setText(translateText);
+        String translateButtonText = isVietnamese ? "Dịch gì đó maybe" : "Translate something";
+        translationButton.setText(translateButtonText);
+        String switchLanguageText = isVietnamese ? "Switch to V" : "Switch to E";
+        switchLanguageButton.setText(switchLanguageText);
+        String crudButtonText = isVietnamese ? "Quản lý từ vựng" : "Manage words";
+        crudButton.setText(crudButtonText);
+        String gameButtonText = isVietnamese ? "Mèo Béo" : "die by rope";
+        gameButton.setText(gameButtonText);
+        String settingsButtonText = isVietnamese ? "Cài đặt" : "Settings";
+        settingsButton.setText(settingsButtonText);
+        String stfuButtonText = isVietnamese ? "Shhhhhh" : "Shut up";
+        stfuButton.setText(stfuButtonText);
+        String speakUKButtonText = isVietnamese ? "uống trà" : "speak tea";
+        speakUKButton.setText(speakUKButtonText);
+        String speakUSButtonText = isVietnamese ? "nói" : "speak";
+        speakUSButton.setText(speakUSButtonText);
+
         try {
             dictionaryService.loadData(); // reload data
             loadWordList();
@@ -159,21 +176,6 @@ public class DictionaryController extends GeneralController {
         );
     }
 
-    /* ON HOLD -
-    @FXML
-    protected void handleTranslateButtonAction(ActionEvent event) {
-    String inputText = inputField.getText();
-    try {
-        String translatedText = translateAPI.translate(inputText);
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Translation Result");
-        alert.setHeaderText(null);
-        alert.setContentText("Translated text: " + translatedText);
-        alert.showAndWait();
-    } catch (IOException e) {
-        e.printStackTrace();
-    }
-    */
 
 }
 
