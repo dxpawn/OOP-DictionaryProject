@@ -71,7 +71,7 @@ public class DictionaryApplication extends Application {
 
     public void loadWordList() {
         wordList.getItems().clear();
-        this.wordList.getItems().addAll(dictionaryService.getData().keySet());
+        wordList.getItems().addAll(dictionaryService.getData().keySet());
     }
 
     public void readData() {
@@ -93,7 +93,6 @@ public class DictionaryApplication extends Application {
                         Word selectedWord = dictionaryService.getData().get(newValue.trim()); // access data via dictionaryService
                         if (selectedWord != null) { // if the selectedWord is not null
                             String definition = selectedWord.getDef();
-                            // load the definition into WebView
                             context.definitionView.getEngine().loadContent(definition, "text/html");
                         } else { // handle cases where the word is not found in the dictionary
                             context.definitionView.getEngine().loadContent("Definition not found.", "text/html");

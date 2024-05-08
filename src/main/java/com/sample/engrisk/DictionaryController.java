@@ -113,12 +113,26 @@ public class DictionaryController extends GeneralController {
         isVietnamese = !isVietnamese; // toggle language
         String translateText = isVietnamese ? "Dịch văn bản" : "Translate something";
         translationButton.setText(translateText);
-        // text for other buttons similarly, i do this tomorrow
         try {
-            dictionaryService.loadData(); // reload data with the new language
-            loadWordList(); // refresh word list
+            dictionaryService.loadData(); // reload data
+            loadWordList();
+            refreshWebView();
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    private void refreshWebView() {
+        String selectedWordKey = wordList.getSelectionModel().getSelectedItem();
+        if (selectedWordKey != null) {
+            Word selectedWord = dictionaryService.getData().get(selectedWordKey.trim());
+            if (selectedWord != null) {
+                definitionView.getEngine().loadContent(selectedWord.getDef(), "text/html");
+            } else {
+                definitionView.getEngine().loadContent("Definition not found.", "text/html");
+            }
+        } else {
+            definitionView.getEngine().loadContent("<p>No word is currently selected.</p>", "text/html");
         }
     }
 

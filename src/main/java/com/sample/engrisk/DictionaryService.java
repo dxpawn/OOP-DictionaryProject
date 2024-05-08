@@ -1,8 +1,10 @@
 package com.sample.engrisk;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -15,11 +17,15 @@ public class DictionaryService extends GeneralController {
         data = new TreeMap<>(); // new treeMap everytime this shit is called
         String path = isVietnamese ? VE_PATH : EV_PATH; // change path based on language chosen
         InputStream inputStream = getClass().getResourceAsStream(path);
-        BufferedReader br = new BufferedReader(new InputStreamReader(inputStream));
+        if (inputStream == null) {
+            throw new FileNotFoundException("Resource not found: " + path);
+        }
+        BufferedReader br = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8));
         String line;
         while ((line = br.readLine()) != null) {
             String[] parts = line.split("<html>");
             String word = parts[0].trim();
+            System.out.println("Loading word: " + word); // DEBUG OUTPUT
             String definition = "<html>" + parts[1].trim();
             Word wordObj = new Word(word, definition);
             data.put(word, wordObj);
