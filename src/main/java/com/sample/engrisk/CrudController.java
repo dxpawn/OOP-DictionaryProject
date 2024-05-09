@@ -4,7 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ListView;
 
-public class CrudController {
+public class CrudController extends GeneralController {
 
     @FXML private TextField wordField;
     @FXML private TextField definitionField;
