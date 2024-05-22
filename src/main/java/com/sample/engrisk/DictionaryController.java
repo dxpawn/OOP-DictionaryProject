@@ -140,6 +140,23 @@ public class DictionaryController extends GeneralController {
 
         gameController.initializeGame();
     }
+
+    @FXML
+    private void launchTranslation() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("TranslateView.fxml"));
+        AnchorPane translateRoot = loader.load();
+        GoogleTranslateController googleTranslateController = loader.getController();
+
+        Stage translateStage = new Stage();
+        translateStage.setScene(new Scene(translateRoot));
+        translateStage.setTitle("Google Translate API Caller");
+        translateStage.setResizable(false);
+        translateStage.initModality(Modality.APPLICATION_MODAL); // lock main window
+        translateStage.show();
+
+        googleTranslateController.initializeTranslation();
+    }
+
     @FXML
     private void changeLanguage() {
         isVietnamese = !isVietnamese; // toggle language

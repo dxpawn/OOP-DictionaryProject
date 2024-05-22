@@ -23,7 +23,7 @@ public class GoogleTranslateController {
     private Text text_target, text_explain;
 
     @FXML
-    private void initialize() {
+    public void initializeTranslation() {
         language_target = "en";
         language_explain = "vi";
         text_target.setText("English");
@@ -44,16 +44,22 @@ public class GoogleTranslateController {
 
     @FXML
     private void handleSwapButton() {
-        if (language_target == "en") {
+        if (language_target.equals("en")) {
             language_target = "vi";
             language_explain = "en";
-            text_target.setText("Tiếng Việt");
-            text_explain.setText("English");
         } else {
             language_target = "en";
             language_explain = "vi";
-            text_target.setText("English");
-            text_explain.setText("Tiếng Việt");
+        }
+        text_target.setText(language_target.equals("en") ? "English" : "Vietnamese");
+        text_explain.setText(language_explain.equals("en") ? "English" : "Vietnamese");
+    }
+
+    @FXML
+    private void handleSpeakButton() {
+        String textToSpeak = Google_Translate_explain.getText();
+        if (!textToSpeak.isEmpty()) {
+            speakAPI.AudioPlay(textToSpeak, language_explain);
         }
     }
 }
