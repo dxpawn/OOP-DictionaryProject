@@ -143,6 +143,7 @@ public class DictionaryController extends GeneralController {
         gameController.initializeGame();
     }
 
+    // Translation API
     @FXML
     private void launchTranslation() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("TranslateView.fxml"));
