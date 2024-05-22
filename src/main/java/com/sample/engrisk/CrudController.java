@@ -17,7 +17,7 @@ public class CrudController extends GeneralController {
     }
 
     @FXML
-    private void initialize() {
+    private void initializeCRUD() {
         refreshWordList();
     }
 

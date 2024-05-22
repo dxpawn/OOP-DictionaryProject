@@ -21,9 +21,7 @@ import java.util.Map;
 import java.util.TreeMap;
 import java.util.stream.Collectors;
 
-import java.util.Objects;
-
-import static com.sample.engrisk.DictionaryApplication.getDictionaryService;
+import java.util.*;
 
 // It's a shame I didn't have time to learn CSS...
 
@@ -67,7 +65,6 @@ public class DictionaryController extends GeneralController {
         loadWordList();
         setupSearchField();
         setupSelectionListener(); // setup listener for word selection
-        crudButton.setOnAction(event -> openCrudOperations()); // open CRUD operations
     }
 
     private void setupSearchField() {
@@ -247,29 +244,6 @@ public class DictionaryController extends GeneralController {
         }
     }
      */
-
-    // CRUD OPERATIONS
-    @FXML
-    public void openCrudOperations() {
-        try {
-            // Load the FXML file for CRUD operations
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/sample/engrisk/crudOpView.fxml"));
-            Parent root = fxmlLoader.load();
-
-            // Get the controller and set the dictionary service
-            CrudController crudController = fxmlLoader.getController();
-            crudController.setDictionaryService(dictionaryService); // Assuming dictionaryService is accessible here
-
-            // Configure and show the new stage (window)
-            Stage stage = new Stage();
-            stage.setTitle("CRUD Operations");
-            stage.setScene(new Scene(root));
-            stage.initModality(Modality.APPLICATION_MODAL); // Optional: Makes this window modal relative to its parent
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();  // Consider more robust error handling or user feedback
-        }
-    }
 
 
 }

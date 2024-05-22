@@ -26,13 +26,6 @@ import java.util.*;
 // NOTE: ALL DATA LOADING AND HANDLING HAS BEEN DELEGATED TO DictionaryService AND DictionaryController
 
 public class DictionaryApplication extends Application {
-    // CRUD OPERATIONS
-    private static DictionaryService dictionaryService = new DictionaryService();
-
-    public static DictionaryService getDictionaryService() {
-        return dictionaryService;
-    } // apparently this is Singleton pattern?
-    // END OF CRUD OPERATIONS
 
     public static void main(String[] args) {
         launch();
@@ -48,10 +41,6 @@ public class DictionaryApplication extends Application {
             FXMLLoader fxmlLoader = new FXMLLoader(url);
             AnchorPane root = fxmlLoader.load();
             Scene scene = new Scene(root, 800, 600);
-            /* CRUD OPERATIONS - I FAILEDD
-            CrudController controller = fxmlLoader.getController();
-            controller.setDictionaryService(getDictionaryService());
-             */
 
             primaryStage.setTitle("Dictionary! A poorly made contraption, born from the unpreparedness of an idiot.");
             primaryStage.setScene(scene);
