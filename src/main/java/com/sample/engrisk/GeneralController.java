@@ -19,6 +19,4 @@ public class GeneralController {
     protected Button translationButton;
     @FXML
     protected Button switchLanguageButton;
-    @FXML
-    protected Button settingsButton;
 }

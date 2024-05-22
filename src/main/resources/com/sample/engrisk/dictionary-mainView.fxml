@@ -19,8 +19,8 @@
       <Button fx:id="speakButton" layoutX="250.0" layoutY="55.0" mnemonicParsing="false" onAction="#handleSpeakButton" prefHeight="25.0" prefWidth="50.0" text="speak" />
       <Button fx:id="translationButton" layoutX="439.0" layoutY="14.0" mnemonicParsing="false" onAction="#launchTranslation" text="translate something" />
       <RadioButton fx:id="boleroButton" layoutX="710.0" layoutY="18.0" mnemonicParsing="false" onAction="#handleBoleroAction" text="nhac vang" />
-      <Button fx:id="switchLanguageButton" layoutX="644.0" layoutY="55.0" mnemonicParsing="false" onAction="#changeLanguage" text="Switch to V" />
-      <Button fx:id="settingsButton" layoutX="728.0" layoutY="55.0" mnemonicParsing="false" text="settings" />
-      <Button fx:id="sicBoButton" layoutX="587.0" layoutY="55.0" mnemonicParsing="false" onAction="#launchSicBoGame" text="casino" />
+      <Button fx:id="switchLanguageButton" layoutX="656.0" layoutY="55.0" mnemonicParsing="false" onAction="#changeLanguage" text="Switch to V" />
+      <Button fx:id="infoButton" layoutX="740.0" layoutY="55.0" mnemonicParsing="false" text="info" />
+      <Button fx:id="sicBoButton" layoutX="600.0" layoutY="55.0" mnemonicParsing="false" onAction="#launchSicBoGame" text="casino" />
    </children>
 </AnchorPane>

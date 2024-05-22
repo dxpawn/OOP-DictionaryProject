@@ -46,6 +46,8 @@ public class DictionaryController extends GeneralController {
     private Button speakButton;
     @FXML
     private Button sicBoButton;
+    @FXML
+    private Button infoButton;
 
     private DictionaryService dictionaryService = new DictionaryService();
 
@@ -168,8 +170,8 @@ public class DictionaryController extends GeneralController {
         crudButton.setText(crudButtonText);
         String gameButtonText = isVietnamese ? "Mèo Béo" : "Die by rope";
         gameButton.setText(gameButtonText);
-        String settingsButtonText = isVietnamese ? "Cài đặt" : "Settings";
-        settingsButton.setText(settingsButtonText);
+        String infoButtonText = isVietnamese ? "cre" : "info";
+        infoButton.setText(infoButtonText);
         String speakButtonText = isVietnamese ? "Nói" : "Speak";
         speakButton.setText(speakButtonText);
         String sicBoButtonText = isVietnamese ? "TaiXiu" : "Sic Bo";
