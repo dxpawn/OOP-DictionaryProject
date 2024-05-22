@@ -7,8 +7,6 @@ import javafx.scene.control.Button;
 
 // what's the point of "implements Initializable"?
 public class GeneralController {
-    public static final String EV_PATH = "/data/E_V.txt";
-    public static final String VE_PATH = "/data/V_E.txt";
     protected static boolean isVietnamese = false;
 
     @FXML
@@ -16,13 +14,9 @@ public class GeneralController {
     @FXML
     protected Button gameButton;
     @FXML
-    protected Button speakUSButton;
+    protected Button speakButton;
     @FXML
     protected Button translationButton;
-    @FXML
-    protected Button speakUKButton;
-    @FXML
-    protected Button stfuButton;
     @FXML
     protected Button switchLanguageButton;
     @FXML

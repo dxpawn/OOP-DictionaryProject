@@ -42,13 +42,17 @@ public class DictionaryController extends GeneralController {
     private WebView definitionView;
     @FXML
     private Button crudButton;
+    @FXML
+    private Button speakButton;
+    @FXML
+    private Button sicBoButton;
 
     private DictionaryService dictionaryService = new DictionaryService();
 
     @FXML
     public void initialize() {
         try { // yes i know loading this media file before the words is just stupid but idc
-            Media media = new Media(Objects.requireNonNull(getClass().getResource("/sounds/ThanhPhoBuon.mp3")).toExternalForm());
+            Media media = new Media(Objects.requireNonNull(getClass().getResource("/sounds/ConDuongXuaEmDi.mp3")).toExternalForm());
             mediaPlayer = new MediaPlayer(media);
         } catch (Exception e) {
             System.out.println("Error loading media: " + e.getMessage());
@@ -103,6 +107,24 @@ public class DictionaryController extends GeneralController {
             mediaPlayer.pause();
         }
     }
+
+    // Sic Bo Game
+    @FXML
+    private void launchSicBoGame() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("SicBoGame.fxml"));
+        VBox sicBoRoot = loader.load();
+        SicBoController sicBoController = loader.getController();
+
+        Stage sicBoStage = new Stage();
+        sicBoStage.setScene(new Scene(sicBoRoot));
+        sicBoStage.setTitle("Sic Bo - Tai Xiu 888 - Play to Win!");
+        sicBoStage.setResizable(false);
+        sicBoStage.initModality(Modality.APPLICATION_MODAL); // lock main window
+        sicBoStage.show();
+
+        sicBoController.initializeSicBo();
+    }
+
     @FXML // Hangman game
     private void launchHangmanGame() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("game_view.fxml"));
@@ -127,16 +149,14 @@ public class DictionaryController extends GeneralController {
         switchLanguageButton.setText(switchLanguageText);
         String crudButtonText = isVietnamese ? "Quản lý từ vựng" : "Manage words";
         crudButton.setText(crudButtonText);
-        String gameButtonText = isVietnamese ? "Mèo Béo" : "die by rope";
+        String gameButtonText = isVietnamese ? "Mèo Béo" : "Die by rope";
         gameButton.setText(gameButtonText);
         String settingsButtonText = isVietnamese ? "Cài đặt" : "Settings";
         settingsButton.setText(settingsButtonText);
-        String stfuButtonText = isVietnamese ? "Shhhhhh" : "Shut up";
-        stfuButton.setText(stfuButtonText);
-        String speakUKButtonText = isVietnamese ? "uống trà" : "speak tea";
-        speakUKButton.setText(speakUKButtonText);
-        String speakUSButtonText = isVietnamese ? "nói" : "speak";
-        speakUSButton.setText(speakUSButtonText);
+        String speakButtonText = isVietnamese ? "Nói" : "Speak";
+        speakButton.setText(speakButtonText);
+        String sicBoButtonText = isVietnamese ? "TaiXiu" : "Sic Bo";
+        sicBoButton.setText(sicBoButtonText);
 
         try {
             dictionaryService.loadData(); // reload data
@@ -181,6 +201,32 @@ public class DictionaryController extends GeneralController {
                 }
         );
     }
+
+    // SPEAK BUTTON
+    @FXML
+    private void handleSpeakButton() {
+        String selectedWordKey = wordList.getSelectionModel().getSelectedItem();
+        if (selectedWordKey != null) {
+            System.out.println("Word to speak: " + selectedWordKey); // DEBUG OUTPUT
+            // Apparently the Vietnamese diacritics are being removed, probably because I had to normalize them for the dictionary to work?
+            speakAPI.AudioPlay(selectedWordKey, isVietnamese ? "vi-VN" : "en-US");
+        }
+    }
+
+    /* Old code of handleSpeakButton()
+    Revert back to this if there's a problem with the Vietnamese part of the speak button
+    @FXML
+    private void handleSpeakButton() {
+        String selectedWordKey = wordList.getSelectionModel().getSelectedItem();
+        if (selectedWordKey != null) {
+            Word selectedWord = dictionaryService.getData().get(selectedWordKey.trim());
+            if (selectedWord != null) {
+                String word = selectedWord.getWord();
+                speakAPI.AudioPlay(word, isVietnamese ? "vi-VN" : "en-US");
+            }
+        }
+    }
+     */
 
     // CRUD OPERATIONS
     @FXML

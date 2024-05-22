@@ -16,12 +16,11 @@
       <TextField fx:id="searchField" layoutX="14.0" layoutY="14.0" prefHeight="25.0" prefWidth="228.0" />
       <ListView fx:id="wordList" layoutX="14.0" layoutY="55.0" prefHeight="531.0" prefWidth="228.0" />
       <WebView fx:id="definitionView" layoutX="249.0" layoutY="88.0" prefHeight="498.0" prefWidth="539.0" />
-      <Button fx:id="speakUSButton" layoutX="250.0" layoutY="55.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="47.0" text="speak" />
+      <Button fx:id="speakButton" layoutX="250.0" layoutY="55.0" mnemonicParsing="false" onAction="#handleSpeakButton" prefHeight="25.0" prefWidth="50.0" text="speak" />
       <Button fx:id="translationButton" layoutX="439.0" layoutY="14.0" mnemonicParsing="false" text="translate something" />
       <RadioButton fx:id="boleroButton" layoutX="710.0" layoutY="18.0" mnemonicParsing="false" onAction="#handleBoleroAction" text="nhac vang" />
-      <Button fx:id="stfuButton" layoutX="383.0" layoutY="55.0" mnemonicParsing="false" text="shut up" />
       <Button fx:id="switchLanguageButton" layoutX="644.0" layoutY="55.0" mnemonicParsing="false" onAction="#changeLanguage" text="Switch to V" />
       <Button fx:id="settingsButton" layoutX="728.0" layoutY="55.0" mnemonicParsing="false" text="settings" />
-      <Button fx:id="speakUKButton" layoutX="304.0" layoutY="55.0" mnemonicParsing="false" text="speak tea" />
+      <Button fx:id="sicBoButton" layoutX="587.0" layoutY="55.0" mnemonicParsing="false" text="casino" onAction="#launchSicBoGame" />
    </children>
 </AnchorPane>

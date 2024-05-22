@@ -1,10 +1,10 @@
 # Implementation of a pedagogical facilitation module designed to augment the acquisition of the English language, utilizing the Java programming environment
 
 ## Authors
-The Sierpinski Triangle
+~~The Sierpinski Triangle~~ "I should have gone to HMU"
 1. Vu Nguyen Dan - 23020351 - Lone Wolf
-2. Dang Duc Duy - 23020347
-3. Phung Vu Hoang - 23020369
+2. Dang Duc Duy - 23020347 - Moral Support
+3. Phung Vu Hoang - 23020369 - GPA Donator
 
 ## Description
 The application under discussion has been meticulously architected to facilitate the acquisition and mastery of the English language. 
@@ -16,7 +16,10 @@ Highlights:
 -  The repositories for linguistic data within this application are contained within two distinct text files, named E_V.txt and V_E.txt respectively. 
 
 ## UML diagram
-draw this thing later
+
+![UML Diagram](src/main/resources/images/cursedUMLDiagram.jpg)
+
+**Peak Design Pattern**: The UML Diagram clearly illustrates the brain capacity of the author of this application.
 
 ## Installation
 1. Initiate the duplication of the project by executing a clone operation from the designated remote repository. This process involves retrieving the entirety of the project's digital artifacts and codebase, thereby enabling a local instantiation of the project’s framework and dependencies.
@@ -33,7 +36,7 @@ draw this thing later
 1. **Select Your Dictionary**: Embark on a journey of choice, albeit a straightforward one: English-Vietnamese or Vietnamese-English. This is an opportunity to engage in a task that simulates intellectual challenge. Choose thoughtfully, reflecting the depth of your decision-making capabilities.
 2. **Type with Purpose**: Here’s a task tailored to your competencies: enter any term into the search bar. Yes, any term will do. The list will update automatically—because we aim to streamline your experience, sparing you from any undue exertion beyond basic keystrokes.
 3. **Engage with the CRUD Button**: Notice the "CRUD Operations" button prominently displayed before you. It invites interaction. Indulge in what might be the most constructive action of your day by clicking it.
-4. **Practice Pronunciation**: Aspire to sound educated? Utilize the "speak" button for an American accent, or "speak with tea" for a British inflection. It’s a step towards cultural finesse, offering a fleeting taste of sophistication.
+4. **Practice Pronunciation**: Aspire to sound educated? Utilize the "speak" button for an American accent. This feature is designed to enhance your linguistic capabilities, providing an opportunity to refine your subpar pronunciation skills.
 5. **Enhance Your Routine**: If a spark of boldness strikes, engage with the "die by a rope" button to initiate a game of hangman. The maximum length is 15 characters - you may have to guess half the alphabet before losing.
 6. **Exit Gracefully**: Should the intellectual rigor prove overwhelming, you can exit by pressing Alt + F4 or clicking the X button. This action is akin to a tactical retreat, a strategy you might find familiar and comforting in its ease.
 
@@ -46,7 +49,8 @@ draw this thing later
 3. Optimize the word lookup algorithm.
 4. Use a Trie because a Trie is superior than your typical puny Maps. Plus, being able to implement a Trie makes you intimidating in your OOP class. Your then brilliance and mental capacity will be overwhelming for the ordinary lame TreeMap users.
 5. Integrate some API.
-6. Learn a bit of CSS and make the UI less of an eyesore.
+6. Learn a bit of CSS and make the UI less of an eyesore. 
+7. ~~if you say "ask an AI for the CSS part" i will personally excommunicate you~~
 
 ## Contributing
 Feel free to contribute if you think you can do a better job. Just keep your changes to yourself until you think it's perfect.

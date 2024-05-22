@@ -53,7 +53,7 @@ public class DictionaryApplication extends Application {
             controller.setDictionaryService(getDictionaryService());
              */
 
-            primaryStage.setTitle("Dictionary! A poorly made contraption, born from the unpreparedness of 2 idiots.");
+            primaryStage.setTitle("Dictionary! A poorly made contraption, born from the unpreparedness of an idiot.");
             primaryStage.setScene(scene);
             primaryStage.setResizable(false);
             primaryStage.show();
