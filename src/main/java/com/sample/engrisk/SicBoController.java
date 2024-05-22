@@ -45,6 +45,8 @@ public class SicBoController {
     public void initializeSicBo() { // why the fk do i need to have an initialize method in everything
         resetDiceDisplays();
         checkCredits();
+        soundPlayer.playSound("TaiXiuIntro.mp3");
+        resetDiceDisplays();
     }
 
     @FXML
