@@ -11,7 +11,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sample.engrisk.DictionaryController">
    <children>
-      <Button fx:id="crudButton" layoutX="250.0" layoutY="14.0" mnemonicParsing="false" text="CRUD operations" onAction="#launchCRUDOperations"/>
+      <Button fx:id="crudButton" layoutX="250.0" layoutY="14.0" mnemonicParsing="false" onAction="#launchCRUDOperations" text="CRUD operations" />
       <Button fx:id="gameButton" layoutX="625.0" layoutY="14.0" mnemonicParsing="false" onAction="#launchHangmanGame" text="die by rope" />
       <TextField fx:id="searchField" layoutX="14.0" layoutY="14.0" prefHeight="25.0" prefWidth="228.0" />
       <ListView fx:id="wordList" layoutX="14.0" layoutY="55.0" prefHeight="531.0" prefWidth="228.0" />
@@ -20,7 +20,7 @@
       <Button fx:id="translationButton" layoutX="439.0" layoutY="14.0" mnemonicParsing="false" onAction="#launchTranslation" text="translate something" />
       <RadioButton fx:id="boleroButton" layoutX="710.0" layoutY="18.0" mnemonicParsing="false" onAction="#handleBoleroAction" text="nhac vang" />
       <Button fx:id="switchLanguageButton" layoutX="656.0" layoutY="55.0" mnemonicParsing="false" onAction="#changeLanguage" text="Switch to V" />
-      <Button fx:id="infoButton" layoutX="740.0" layoutY="55.0" mnemonicParsing="false" text="info" />
+      <Button fx:id="infoButton" layoutX="740.0" layoutY="55.0" mnemonicParsing="false" onAction="#launchInfo" text="info" />
       <Button fx:id="sicBoButton" layoutX="600.0" layoutY="55.0" mnemonicParsing="false" onAction="#launchSicBoGame" text="casino" />
    </children>
 </AnchorPane>

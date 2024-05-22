@@ -14,9 +14,9 @@ public class DictionaryService extends GeneralController {
     public static final String EV_PATH = "/data/E_V.txt";
     public static final String VE_PATH = "/data/V_E.txt";
 
-    private DictionaryService() {}  // Private constructor
+    private DictionaryService() {} // omg private constructor!
 
-    public static DictionaryService getInstance() {
+    public static DictionaryService getInstance() { // very smart singleton hahahaha
         if (instance == null) {
             instance = new DictionaryService();
         }

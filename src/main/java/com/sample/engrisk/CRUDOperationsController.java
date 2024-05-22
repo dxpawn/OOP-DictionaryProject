@@ -4,13 +4,16 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert;
 
+import java.util.*;
+
 public class CRUDOperationsController {
     @FXML
     private TextField wordField;
     @FXML
     private TextField definitionField;
 
-    private DictionaryService dictionaryService = DictionaryService.getInstance();
+    private DictionaryService dictionaryService = DictionaryService.getInstance(); // Singleton
+    private List<WordListObserver> observers = new ArrayList<>();
 
     // note: you will have to initialize this in a method named launchCRUD in DictionaryController
     // remember to change this method name
@@ -23,6 +26,16 @@ public class CRUDOperationsController {
         }
     }
 
+    public void addObserver(WordListObserver observer) {
+        observers.add(observer);
+    }
+
+    private void notifyObservers() {
+        for (WordListObserver observer : observers) {
+            observer.updateWordList();
+        }
+    }
+
     @FXML
     private void handleAdd() {
         String word = wordField.getText().trim().toLowerCase();
@@ -31,6 +44,7 @@ public class CRUDOperationsController {
             dictionaryService.getData().put(word, new Word(word, definition));
             showConfirmation("Added", "Word added successfully.");
             clearFields();
+            notifyObservers();
         }
         System.out.println("Current data in dictionary: " + DictionaryService.getInstance().getData());
     }
@@ -43,6 +57,7 @@ public class CRUDOperationsController {
             dictionaryService.getData().put(word, new Word(word, definition));
             showConfirmation("Updated", "Word updated successfully.");
             clearFields();
+            notifyObservers();
         } else {
             showError("Update Error", "Word does not exist.");
         }
@@ -58,6 +73,7 @@ public class CRUDOperationsController {
             System.out.println("Word exists after deletion: " + dictionaryService.getData().containsKey(word));
             showConfirmation("Deleted", "Word deleted successfully.");
             clearFields();
+            notifyObservers();
         } else {
             showError("Delete Error", "Word does not exist.");
         }

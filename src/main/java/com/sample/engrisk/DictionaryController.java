@@ -25,7 +25,7 @@ import java.util.*;
 
 // It's a shame I didn't have time to learn CSS...
 
-public class DictionaryController extends GeneralController {
+public class DictionaryController extends GeneralController implements WordListObserver {
     private Map<String, Word> data = new TreeMap<>();
 
     @FXML
@@ -47,7 +47,7 @@ public class DictionaryController extends GeneralController {
     @FXML
     private Button infoButton;
 
-    private DictionaryService dictionaryService = DictionaryService.getInstance();
+    private DictionaryService dictionaryService = DictionaryService.getInstance(); // fucking singleton
 
     @FXML
     public void initialize() {
@@ -130,6 +130,7 @@ public class DictionaryController extends GeneralController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("crudOpView.fxml"));
         AnchorPane crudRoot = loader.load();
         CRUDOperationsController crudOperationsController = loader.getController();
+        crudOperationsController.addObserver(this); // register DictionaryController as observer
 
         Stage crudStage = new Stage();
         crudStage.setScene(new Scene(crudRoot));
@@ -172,6 +173,20 @@ public class DictionaryController extends GeneralController {
         translateStage.show();
 
         googleTranslateController.initializeTranslation();
+    }
+
+    // Author info
+    @FXML
+    private void launchInfo() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("authorInfo.fxml"));
+        AnchorPane infoRoot = loader.load();
+
+        Stage infoStage = new Stage();
+        infoStage.setScene(new Scene(infoRoot));
+        infoStage.setTitle("Author Info");
+        infoStage.setResizable(false);
+        infoStage.initModality(Modality.APPLICATION_MODAL); // lock main window
+        infoStage.show();
     }
 
     @FXML
@@ -245,6 +260,12 @@ public class DictionaryController extends GeneralController {
             // Apparently the Vietnamese diacritics are being removed, probably because I had to normalize them for the dictionary to work?
             speakAPI.AudioPlay(selectedWordKey, isVietnamese ? "vi-VN" : "en-US");
         }
+    }
+
+    // Observer Pattern attempt
+    @Override
+    public void updateWordList() {
+        loadWordList();
     }
 
     /* Old code of handleSpeakButton()
