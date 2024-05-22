@@ -1,4 +1,3 @@
-/* Định dạng nền cho AnchorPane */
 .anchor-pane {
     -fx-background-color: #FFFF00; /* Màu vàng */
 }
@@ -6,7 +5,7 @@
 /* Định dạng cho các Button */
 .button {
     -fx-background-color: #2E8B57; /* Màu xanh lá cây */
-    -fx-text-fill: #D3D3D3; /* Màu xám */
+    -fx-text-fill: #FFFFFF;
 }
 
 /* Định dạng cho TextField */
@@ -26,7 +25,7 @@
 
 /* Định dạng cho RadioButton */
 .radio-button {
-    -fx-text-fill: #D3D3D3; /* Màu xám */
+    -fx-text-fill: #2E8B57;
 }
 
 /* Định dạng cho các Button khác */
@@ -38,3 +37,4 @@
 #sicBoButton,
 #gameButton {
     -fx-background-color: #2E8B57; /*
+
