@@ -22,7 +22,7 @@ public class WordleController {
     @FXML
     private Label feedbackLabel, finalMessage, displayedWord;
 
-    private DictionaryService dictionaryService = new DictionaryService();
+    private DictionaryService dictionaryService = DictionaryService.getInstance();
 
     private String secretWord;
     private int attempts = 6;

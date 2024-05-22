@@ -47,7 +47,7 @@ public class DictionaryController extends GeneralController {
     @FXML
     private Button infoButton;
 
-    private DictionaryService dictionaryService = new DictionaryService();
+    private DictionaryService dictionaryService = DictionaryService.getInstance();
 
     @FXML
     public void initialize() {
@@ -122,6 +122,23 @@ public class DictionaryController extends GeneralController {
         sicBoStage.show();
 
         sicBoController.initializeSicBo();
+    }
+
+    // CRUD
+    @FXML
+    private void launchCRUDOperations() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("crudOpView.fxml"));
+        AnchorPane crudRoot = loader.load();
+        CRUDOperationsController crudOperationsController = loader.getController();
+
+        Stage crudStage = new Stage();
+        crudStage.setScene(new Scene(crudRoot));
+        crudStage.setTitle("CRUD Operations");
+        crudStage.setResizable(false);
+        crudStage.initModality(Modality.APPLICATION_MODAL); // lock main window
+        crudStage.show();
+
+        crudOperationsController.initializeCRUD();
     }
 
     @FXML // Hangman game
@@ -244,6 +261,7 @@ public class DictionaryController extends GeneralController {
         }
     }
      */
+
 
 
 }

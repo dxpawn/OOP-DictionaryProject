@@ -33,7 +33,7 @@ public class GameController extends GeneralController {
     private SoundPlayer soundPlayer = new SoundPlayer();
 
     public void initializeGame() {
-        DictionaryService dictionaryService = new DictionaryService();
+        DictionaryService dictionaryService = DictionaryService.getInstance();
         try {
             dictionaryService.loadData();
         } catch (Exception e) {
