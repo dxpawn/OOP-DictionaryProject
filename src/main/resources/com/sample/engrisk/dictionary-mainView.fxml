@@ -9,7 +9,7 @@
 
 <!-- the fx:controller is really important, learned that the hard way -->
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sample.engrisk.DictionaryController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sample.engrisk.DictionaryController" stylesheets="@main.css">
    <children>
       <Button fx:id="crudButton" layoutX="250.0" layoutY="14.0" mnemonicParsing="false" text="CRUD operations" />
       <Button fx:id="gameButton" layoutX="611.0" layoutY="14.0" mnemonicParsing="false" onAction="#launchHangmanGame" text="die by a rope" />
