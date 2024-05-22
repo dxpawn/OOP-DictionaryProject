@@ -5,21 +5,22 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <VBox alignment="CENTER" prefHeight="663.0" prefWidth="542.0" spacing="20.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sample.engrisk.SicBoController">
+   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Rule: Win +500, Lose -1000, lose on any triple " />
     <ImageView fx:id="diceOne" fitHeight="100" fitWidth="100" preserveRatio="true" />
     <ImageView fx:id="diceTwo" fitHeight="100" fitWidth="100" preserveRatio="true" />
     <ImageView fx:id="diceThree" fitHeight="100" fitWidth="100" preserveRatio="true" />
-    <Button alignment="TOP_LEFT" onAction="#handleBetSmall" prefHeight="30.0" prefWidth="105.0" text="Bet on SMALL">
+    <Button fx:id="betSmallButton" alignment="TOP_LEFT" onAction="#handleBetSmall" prefHeight="30.0" prefWidth="105.0" text="Bet on SMALL">
       <font>
          <Font size="14.0" />
       </font></Button>
-    <Button onAction="#handleBetBig" prefHeight="25.0" prefWidth="95.0" text="Bet on BIG">
+    <Button fx:id="betBigButton" onAction="#handleBetBig" prefHeight="25.0" prefWidth="95.0" text="Bet on BIG">
       <font>
          <Font size="15.0" />
       </font></Button>
-    <Label fx:id="resultLabel" style="-fx-font-size: 16px;" text="Roll the dice to see if you win!" />
-
-    <Button fx:id="playWordleButton" text="Pay your debts... using Wordle" visible="false" />
-    <!-- onAction="#handlePlayWordle"  add this back to playWordleButton after u done-->
+    <Label fx:id="resultLabel" style="-fx-font-size: 16px;" text="Are you ready to feel like Huấn Hoa Hồng?" />
+    <Label fx:id="creditLabel" style="-fx-font-size: 16px;" text="Credits: 2201" />
+    <Button fx:id="playWordleButton" onAction="#launchPlayWordle" text="Pay your debts... using Wordle" visible="false" />
 </VBox>

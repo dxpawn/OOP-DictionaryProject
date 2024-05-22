@@ -5,11 +5,11 @@ Inheritance Tree: 1 - 1,5 : No
 CRUD Operations: 2 : No
 IO File/Database: 0,5 : Yes? (E.V V.E files)
 Search: 0,5 : Yes (no autocompletion)
-Sound: 1 : Yesn't (no GUI sound) 
+Sound: 1 : Yes
 GUI: 1,5 : Yes
 Good UI/UX: 0,5 : No
 Optimize Search: 1 : No 
-API: 0,5 : No, soon
-Game: 0,5 : Yes
+API: 0,5 : Yes - google speech
+Game: 1 : Yes
 
 

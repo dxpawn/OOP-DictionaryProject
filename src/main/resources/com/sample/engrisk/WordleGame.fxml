@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
 
-<VBox fx:id="vbox" spacing="10" alignment="CENTER" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sample.engrisk.WordleController">
-    <Label text="Wordle Game" style="-fx-font-size: 24px;"/>
-    <TextField fx:id="guessInput" promptText="Enter your guess here" maxWidth="200"/>
-    <Button text="Guess" onAction="#handleGuess"/>
-    <Label fx:id="feedbackLabel" text="You have 6 guesses left."/>
-    <Label fx:id="finalMessage" text=""/>
-    <Button text="Back to Sic Bo" onAction="#handleBackToSicBo" visible="false"/>
+<VBox fx:id="vbox" alignment="CENTER" prefHeight="345.0" prefWidth="314.0" spacing="10" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sample.engrisk.WordleController">
+    <Label style="-fx-font-size: 24px;" text="Wordle Game" />
+   <Label fx:id="displayedWord" text="-" />
+    <Label fx:id="finalMessage" text="" />
+    <Label fx:id="feedbackLabel" text="You have 6 guesses left." />
+    <TextField fx:id="guessInput" maxWidth="200" promptText="Enter your guess here" />
+    <Button onAction="#handleGuess" text="Guess" />
 </VBox>
