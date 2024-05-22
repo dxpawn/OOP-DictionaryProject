@@ -46,6 +46,7 @@ public class DictionaryApplication extends Application {
         root.getChildren().add(text);
 
         Scene scene = new Scene(root, 800, 600); // reuse root
+        scene.getStylesheets().add(getClass().getResource("main.css").toExternalForm());
         primaryStage.setResizable(false); // cuz AnchorPane
         // WARNING: DO NOT MODIFY THIS IMAGE PATH - THIS HAS CAUSED A LOT OF TROUBLE, i.e. InvocationTargetException
         URL imageUrl = getClass().getResource("/images/icon.jpg");
