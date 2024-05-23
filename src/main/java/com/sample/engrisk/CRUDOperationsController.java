@@ -14,11 +14,10 @@ public class CRUDOperationsController {
 
     private DictionaryService dictionaryService = DictionaryService.getInstance(); // Singleton
     private List<WordListObserver> observers = new ArrayList<>();
-
-    // note: you will have to initialize this in a method named launchCRUD in DictionaryController
-    // remember to change this method name
+    
+    // They said CRUD is simply put and remove...
     public void initializeCRUD() {
-        DictionaryService dictionaryService = DictionaryService.getInstance(); // Assuming DictionaryService is accessible like this
+        DictionaryService dictionaryService = DictionaryService.getInstance();
         try {
             dictionaryService.loadData(); // Load the initial data
         } catch (Exception e) {
