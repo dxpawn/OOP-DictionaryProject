@@ -1,0 +1,56 @@
+
+.anchor-pane {
+    -fx-background-color: #FFFF00; /* Yellow */
+}
+
+/* Styles for Buttons */
+.button {
+    -fx-background-color: #167501; /* Green */
+    -fx-text-fill: #FFFFFF; /* White text */
+}
+
+/* Styles for TextField */
+.text-field {
+    -fx-background-color: #167501; /* Green */
+}
+
+/* Styles for ListView */
+.list-view {
+    -fx-control-inner-background: #167501; /* Green */
+}
+
+/* Styles for WebView */
+.web-view {
+    -fx-background-color: #167501; /* Green */
+}
+
+/* Styles for RadioButton */
+.radio-button {
+    -fx-text-fill: #167501; /* Green */
+}
+
+/* Styles for other Buttons */
+#speakButton,
+#switchLanguageButton,
+#infoButton,
+#translationButton,
+#crudButton,
+#sicBoButton,
+#gameButton {
+    -fx-background-color: #167501; /* Green */
+}
+
+.button, .text-field, .list-view, .web-view, #speakButton,
+#switchLanguageButton, #infoButton, #translationButton,
+#crudButton, #sicBoButton, #gameButton {
+    -fx-background-radius: 10px; /* Rounded corners */
+    -fx-background-color: #167501; /* Green */
+}
+
+.button:hover, #speakButton:hover,
+#switchLanguageButton:hover, #infoButton:hover,
+#translationButton:hover, #crudButton:hover,
+#sicBoButton:hover, #gameButton:hover {
+    -fx-background-color: #145c01; /* A darker shade of green for hover */
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 3, 0, 0, 5);
+}

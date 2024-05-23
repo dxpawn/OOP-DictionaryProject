@@ -165,8 +165,12 @@ public class DictionaryController extends GeneralController implements WordListO
         AnchorPane translateRoot = loader.load();
         GoogleTranslateController googleTranslateController = loader.getController();
 
+        Scene scene = new Scene(translateRoot);
+        scene.getStylesheets().add(getClass().getResource("TranslateView.css").toExternalForm());
+
         Stage translateStage = new Stage();
-        translateStage.setScene(new Scene(translateRoot));
+        translateStage.setScene(scene);
+
         translateStage.setTitle("Google Translate API Caller");
         translateStage.setResizable(false);
         translateStage.initModality(Modality.APPLICATION_MODAL); // lock main window

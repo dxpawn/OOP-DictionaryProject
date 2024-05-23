@@ -1,0 +1,39 @@
+/* General Background of the AnchorPane */
+.anchor-pane {
+    -fx-background-color: #f0f0f0; /* Light grey background */
+}
+
+/* Styling for Text Labels */
+.text {
+    -fx-fill: #333333; /* Dark grey color for text */
+    -fx-font-weight: bold; /* Make text bold */
+}
+
+/* Styles for Buttons */
+.button {
+    -fx-background-color: #4CAF50; /* Green background */
+    -fx-text-fill: #FFFFFF; /* White text */
+    -fx-background-radius: 5px; /* Rounded corners */
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 5, 0, 0, 2);
+}
+
+.button:hover {
+    -fx-background-color: #45a049; /* Slightly darker green when hovered */
+}
+
+/* Styles for TextArea */
+.text-area {
+    -fx-background-color: #ffffff; /* White background */
+    -fx-border-color: #cccccc; /* Light grey border */
+    -fx-border-radius: 5px; /* Rounded borders */
+    -fx-background-radius: 5px; /* Rounded backgrounds */
+}
+
+.text-area[editable="false"] { /* Specific styles for non-editable TextArea */
+    -fx-background-color: #8e8b8b; /* Slightly darker background to distinguish from editable areas */
+}
+
+/* Font styling for buttons can be set directly in the FXML or CSS */
+.button > .font {
+    -fx-font-size: 13px;
+}

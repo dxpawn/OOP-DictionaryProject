@@ -42,6 +42,8 @@ public class DictionaryApplication extends Application {
             FXMLLoader fxmlLoader = new FXMLLoader(url);
             AnchorPane root = fxmlLoader.load();
             Scene scene = new Scene(root, 800, 600);
+            String css = this.getClass().getResource("main.css").toExternalForm();
+            scene.getStylesheets().add(css);
 
             primaryStage.setTitle("Dictionary! A poorly made contraption, born from the unpreparedness of an idiot.");
             primaryStage.setScene(scene);

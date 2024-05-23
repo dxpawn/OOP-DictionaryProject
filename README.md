@@ -14,6 +14,7 @@ Architecturally, the application adheres to the Model-View-Controller (MVC) para
 Highlights:
 -  Bifurcated dictionary functionality, encompassing both English-Vietnamese and Vietnamese-English lexicons.
 -  The repositories for linguistic data within this application are contained within two distinct text files, named E_V.txt and V_E.txt respectively. 
+-  Integration of Sic Bo game for entertainment purposes, providing a brief respite from the rigors of linguistic study.
 
 ## UML diagram
 
